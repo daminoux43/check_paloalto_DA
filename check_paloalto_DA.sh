@@ -6,7 +6,7 @@
 ########################################
 
 PROGNAME=$(basename $0)
-RELEASE="release 0.3"
+RELEASE="release 0.4"
 AUTHOR="(c) 06/2021 Damien ARNAUD github@daminoux.fr"
 
 ###########################################
@@ -261,7 +261,7 @@ elif [ "$strpart" == "sessionGP" ]; then
     STATE=$(snmpwalk -v 2c -O vqe -c $strCommunity $strHostname  .1.3.6.1.4.1.25461.2.1.2.5.1.3.0 | sed 's/\"//g')
 	if [ ! -z "$STATE"  ]
 		then
-		echo "OK NB_session-GlobalProtect=$STATE"
+		echo "OK NB_session-GlobalProtect=$STATE | NB_session=$STATE "
 		exit 0
 	else
 	echo "Critical NB_session-GlobalProtect=$STATE"
